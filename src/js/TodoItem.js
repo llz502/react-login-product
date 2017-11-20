@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TodoItem.css'
+import '../css/TodoItem.css'
 
 export default class TodoItem extends Component {
   render(){

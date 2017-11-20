@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './UserDialog.css'
+import '../css/UserDialog.css'
 import {signUp, signIn, sendPasswordResetEmail} from './leanCloud'
 import ForgotPasswordForm from './ForgotPasswordForm'
 import SignInOrSignUp from './SignInOrSignUp'
@@ -19,8 +19,8 @@ export default class UserDialog extends Component{
   signUp(e){
     e.preventDefault()
     let {email, username, password} = this.state.formData
-    let success = (user)=>{
-      this.props.onSignUp.call(null, user)
+    let success = (username)=>{
+      this.props.onSignUp.call(null, username)
     }
     let error = (error)=>{
       switch(error.code){
@@ -37,8 +37,8 @@ export default class UserDialog extends Component{
   signIn(e){
     e.preventDefault()
     let {username, password} = this.state.formData
-    let success = (user)=>{
-      this.props.onSignIn.call(null, user)
+    let success = (username)=>{
+      this.props.onSignIn.call(null, username)
     }
     let error = (error)=>{
       switch(error.code){
