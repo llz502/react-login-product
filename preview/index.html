@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+  .navbar{
+    position: relative;
+  }
+  .navbar .mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(109, 108, 108, 0.488);
+  }
+  .navbar img{
+    opacity: .5;
+    display: block;
+  }
+  .navbar h1{
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%,-50%);
+    color: #FFF;
+    text-align: center;
+    font-size: 46px;
+    text-shadow: 0 0 40px black;
+  }
+  .navbar h2{
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%,-50%);
+    color: #FFF;
+    text-align: center;
+    font-size: 27px;
+    text-shadow: 0 0 40px black;
+  }
+  .navbar .link{
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%,-50%);
+    color: #FFF;
+    text-align: center;
+    font-size: 23px;
+    text-shadow: 0 0 40px black;
+  }
+  .navbar a{
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid #fff;
+  }
+  .content{
+    width: 66.7%;
+    margin: 0 auto;
+  }
+  .content h2{
+    margin: 30px 0 10px;
+    font-weight: 600;
+    font-size: 22px;
+    color: rgb(64, 64, 64);
+    line-height: 1.1;
+  }
+  .content p{
+    margin: 20px 0;
+    line-height: 2.5;
+    font-size: 16px;
+    color: #404040;
+  }
+  .content ul{
+    line-height: 2.5;
+    font-size: 16px;
+    color: #404040;
+    margin-left: 20px;
+  }
+  .content .function li{
+    margin-top: 30px;
+  }
+  .content .function img{
+    width: 460px;
+    display: block;
+  }
+  .content ul h3{
+    font-size: 16px;
+  }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <img src="./notepad-llz.png" alt="">
+    <div class="mask"></div>
+    <h1>React-Notepad-App</h1>
+    <h2>作者：LiZhen Lin</h2>
+    <div class="link">
+      <a href="https//llz502.github.io/react-login-product/build/index.html">项目</a>
+      <a href="https://github.com/llz502/react-login-product">源码</a>
+    </div>
+  </div>
+  <div class="content">
+      <h2>为什么要做这个App</h2>
+      <p>
+        在阅读了leancloud文档后，又掌握了vue之后，开始对react的学习，
+        通过全局安装create-react-app工具，安装react、react-dom等相关模块，
+        完成记事本的注册，登录，找回密码，记录事件等功能
+      </p>
+      <h2>项目功能</h2>
+      <div class="function">
+        <ul>
+          <li>
+            网页版记事本可以通过邮箱、用户名、密码，注册多个用户
+            <img src="notepad-signUp.png" alt="">
+          </li>
+          <li>
+            已注册用户都一块登录自己的账户，获取自己的事件信息
+            <img src="notepad-signUp.png" alt="">
+          </li>
+          <li>
+            如果用户忘记密码，可以通过注册时登记的邮箱，发送重置密码的邮件到登记邮箱里
+            <img src="notepad-reset.png" alt="">
+          </li>
+          <li>
+            已注册用户llj502，登录后会获取之前添加的事件记录，网页版可以新的事件记录，也可以删除事件，
+            <img src="notepad-llj502.png" alt="">
+          </li>
+        </ul>
+      </div>
+      <h2>对React的概念进行一些分析</h2>
+      <p>
+        <ul>
+          <li>React使用JSX语法，即使用XML标签，标签一定是闭合的，且每段JSX里的XML只能有一个根标签，XML里面可以用{}包着JS代码</li>
+          <li>XML写出来的标签只会出现在内存，React会使用虚拟DOM计算出真正的页面结构，然后在更新到页面中，就是DOM操作，然后渲染到浏览器页面</li>
+          <li>React可以自定义任何元素，React将多个元素组成的组件写到一个独立的文件里，以便代码维护</li>
+          <li>React的状态state是组件生成后，只会在组件内部变化的，状态的改变不会被组件外的元素影响</li>
+          <li>React的属性props，props由组件外的元素提供对应的值，会导致组件重新更新渲染</li>
+          <li>组件第一次渲染的过程会连续调用钩子函数constructor()、componentWillMount()、render()、componentDidMount()</li>
+          <li>组件初次渲染完后，组件props的值被更新后，会连续调用钩子函数componentWillReceiveProps(nextProps)、shouldComponentUpdate(nextProps, nextState)、componentWillUpdate()、render()、componentDidUpdate()更新渲染组件</li>
+          <li>当组件从页面中移除时，会调用钩子函数componentWillUnmount()</li>
+          <li>this.setState函数方法一般可以在钩子函数componentWillMount()、componentDidMount()、componentWillReceiveProps()</li>
+        </ul>
+      </p>
+      <h2>单独来讨论一下setState()函数方法吧</h2>
+      <p>
+        <ul>
+          <li>React提供方法函数setState()来改变state属性的值</li>
+          <li>在调用setState()不会立即改变React组件中的state,所以组件中调用往setState()之后，this.state的值前后并没有改变</li>
+          <li>调用setState()函数之后，会引发一次组件的更新过程（shouldComponentUpdate、componentWillUpdate、render、componentDidUpdate）来引发重新绘制,</li>
+          <li>连续多次调用this.setState，但是只会引发一次更新生命周期，多次setState函数调用产生的效果会合并</li>
+          <li>传递给this.setState的参数不是一个对象而是一个函数，this.state的值会在调用this.setState(参数函数(this.state,this.props))之后立即改变，所以this.setState函数参数this.state的值是合并之前效果之后的值</li>
+          <li>参数值是对象的this.setState函数，会清空参数值是函数的this.setState函数改变的state的值</li>
+        </ul>
+      </p>
+      <h2>目录结构</h2>
+      <p class="list">
+        <ul>
+          <li>
+            <h3>node_modules/</h3>使用npm下载模块
+          </li>
+          <li>
+            <h3>build/</h3>webpack开启服务器，打包文件的文件夹
+          </li>
+          <li>
+            <h3>src/</h3>放置开发项目的文件夹
+          </li>
+          <li>
+            <h3>public/</h3>放置不需要打包文件的文件夹
+          </li>
+        </ul>
+      </p>
+  </div>
+
+</body>
+</html>
