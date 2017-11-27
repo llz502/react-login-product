@@ -22,6 +22,7 @@
     background: rgba(109, 108, 108, 0.488);
   }
   .navbar img{
+    width: 100%;
     opacity: .5;
     display: block;
   }
@@ -94,16 +95,27 @@
   .content ul h3{
     font-size: 16px;
   }
+  @media screen and (max-width: 768px) {
+    .navbar h1{
+      font-size: 23px;
+    }
+    .navbar h2,.navbar a{
+      font-size: 17px;
+    }
+    .content .function img{
+      width: 100%;
+    }
+  }
   </style>
 </head>
 <body>
   <div class="navbar">
     <img src="./notepad-llz.png" alt="">
     <div class="mask"></div>
-    <h1>React-Notepad-App</h1>
+    <h1>Notepad-App</h1>
     <h2>作者：LiZhen Lin</h2>
     <div class="link">
-      <a href="https//llz502.github.io/react-login-product/build/index.html">项目</a>
+      <a href="https://llz502.github.io/react-login-product/build/index.html">项目</a>
       <a href="https://github.com/llz502/react-login-product">源码</a>
     </div>
   </div>
