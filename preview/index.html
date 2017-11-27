@@ -13,7 +13,7 @@
   .navbar{
     position: relative;
     width: 100%;
-    padding-top: 46.65%;
+    padding-top: 46.54%;
   }
   .navbar .mask{
     width: 100%;
@@ -69,7 +69,7 @@
     border: 1px solid #fff;
   }
   .content{
-    width: 66.7%;
+    width: 76.7%;
     margin: 0 auto;
   }
   .content h2{
@@ -86,6 +86,7 @@
     color: #404040;
   }
   .content ul{
+    list-style: circle;
     line-height: 2.5;
     font-size: 16px;
     color: #404040;
@@ -94,8 +95,16 @@
   .content .function li{
     margin-top: 30px;
   }
+  .content .function li .img-wrap{
+    position: relative;
+    width: 100%;
+    padding-top: 89.33%;
+  }
   .content .function img{
-    width: 460px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     display: block;
   }
   .content ul h3{
@@ -140,19 +149,27 @@
         <ul>
           <li>
             网页版记事本可以通过邮箱、用户名、密码，注册多个用户
-            <img src="notepad-signUp.png" alt="">
+            <div class="img-wrap">
+              <img src="notepad-signUp.png" alt="">
+            </div>
           </li>
           <li>
             已注册用户都一块登录自己的账户，获取自己的事件信息
-            <img src="notepad-signUp.png" alt="">
+            <div class="img-wrap">
+              <img src="notepad-signUp.png" alt="">
+            </div>
           </li>
           <li>
             如果用户忘记密码，可以通过注册时登记的邮箱，发送重置密码的邮件到登记邮箱里
-            <img src="notepad-reset.png" alt="">
+            <div class="img-wrap">
+              <img src="notepad-reset.png" alt="">
+            </div>
           </li>
           <li>
             已注册用户llj502，登录后会获取之前添加的事件记录，网页版可以新的事件记录，也可以删除事件，
-            <img src="notepad-llj502.png" alt="">
+            <div class="img-wrap">
+              <img src="notepad-llj502.png" alt="">
+            </div>
           </li>
         </ul>
       </div>
@@ -165,9 +182,9 @@
           <li>React的状态state是组件生成后，只会在组件内部变化的，状态的改变不会被组件外的元素影响</li>
           <li>React的属性props，props由组件外的元素提供对应的值，会导致组件重新更新渲染</li>
           <li>组件第一次渲染的过程会连续调用钩子函数constructor()、componentWillMount()、render()、componentDidMount()</li>
-          <li>组件初次渲染完后，组件props的值被更新后，会连续调用钩子函数 componentWillReceiveProps()、 shouldComponentUpdate()、componentWillUpdate()、render()、componentDidUpdate()更新渲染组件</li>
+          <li>组件初次渲染完后，组件props的值被更新后，会连续调用钩子函数 componentWillReceive Props()、 should ComponentUpdate()、componentWillUpdate()、render()、componentDidUpdate()更新渲染组件</li>
           <li>当组件从页面中移除时，会调用钩子函数componentWillUnmount()</li>
-          <li>this.setState函数方法一般可以在钩子函数componentWillMount()、componentDidMount()、componentWillReceiveProps()</li>
+          <li>this.setState函数方法一般可以在钩子函数componentWillMount()、componentDidMount()、componentWillReceiveP rops()</li>
         </ul>
       </p>
       <h2>单独来讨论一下setState()函数方法吧</h2>
@@ -175,7 +192,7 @@
         <ul>
           <li>React提供方法函数setState()来改变state属性的值</li>
           <li>在调用setState()不会立即改变React组件中的state,所以组件中调用往setState()之后，this.state的值前后并没有改变</li>
-          <li>调用setState()函数之后，会引发一次组件的更新过程（shouldComponentUpdate、componentWillUpdate、render、componentDidUpdate）来引发重新绘制,</li>
+          <li>调用setState()函数之后，会引发一次组件的更新过程（shouldComponentUp date、componentWillUpdate、render、componentDidUpdate）来引发重新绘制,</li>
           <li>连续多次调用this.setState，但是只会引发一次更新生命周期，多次setState函数调用产生的效果会合并</li>
           <li>传递给this.setState的参数不是一个对象而是一个函数，this.state的值会在调用this.setState(参数函数(this.state,this.props))之后立即改变，所以this.setState函数参数this.state的值是合并之前效果之后的值</li>
           <li>参数值是对象的this.setState函数，会清空参数值是函数的this.setState函数改变的state的值</li>
