@@ -12,6 +12,8 @@
     }
   .navbar{
     position: relative;
+    width: 100%;
+    padding-top: 46.65%;
   }
   .navbar .mask{
     width: 100%;
@@ -25,6 +27,10 @@
     width: 100%;
     opacity: .5;
     display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
   }
   .navbar h1{
     position: absolute;
@@ -96,6 +102,9 @@
     font-size: 16px;
   }
   @media screen and (max-width: 768px) {
+    .navbar img{
+      width: 100%;
+    }
     .navbar h1{
       font-size: 23px;
     }
@@ -156,7 +165,7 @@
           <li>React的状态state是组件生成后，只会在组件内部变化的，状态的改变不会被组件外的元素影响</li>
           <li>React的属性props，props由组件外的元素提供对应的值，会导致组件重新更新渲染</li>
           <li>组件第一次渲染的过程会连续调用钩子函数constructor()、componentWillMount()、render()、componentDidMount()</li>
-          <li>组件初次渲染完后，组件props的值被更新后，会连续调用钩子函数componentWillReceiveProps(nextProps)、shouldComponentUpdate(nextProps, nextState)、componentWillUpdate()、render()、componentDidUpdate()更新渲染组件</li>
+          <li>组件初次渲染完后，组件props的值被更新后，会连续调用钩子函数 componentWillReceiveProps()、 shouldComponentUpdate()、componentWillUpdate()、render()、componentDidUpdate()更新渲染组件</li>
           <li>当组件从页面中移除时，会调用钩子函数componentWillUnmount()</li>
           <li>this.setState函数方法一般可以在钩子函数componentWillMount()、componentDidMount()、componentWillReceiveProps()</li>
         </ul>
